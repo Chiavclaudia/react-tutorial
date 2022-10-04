@@ -1,9 +1,38 @@
-const header = () => {
+import React from 'react'
+import PropTypes from 'prop-types'
+import Button from './Button'
+
+const Header = ({ title }) => {
+  const onClick = () => {
+    console.log('Click')
+  }
+
   return (
-    <header>
-      <h1>Task Tracker</h1>
+    <header className='header'>
+      <h1>{title}</h1>
+        <Button
+          color='green'
+          text='add'
+          onClick={onClick}
+        />
     </header>
   )
 }
 
-export default header
+Header.defaultProps = {
+  title: 'Task Tracker',
+}
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+}
+
+// CSS in JS
+// const headingStyle = {
+//   color: 'red',
+//   backgroundColor: 'black',
+// }
+
+export default Header
+
+//Restart from Task Component 1:48:47
